@@ -1,0 +1,40 @@
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_3_0.xsd"
+	version="3.0">
+
+	<display-name>Archetype Created Web Application</display-name>
+
+	<!-- This is to configure the front controller called DispatcherServlet -->
+	<servlet>
+		<servlet-name>Dispatcher Servlet</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet
+		</servlet-class>
+		
+	<!-- This is to configure the controller classes and to map the views(jsp)
+		this can be included if the servlet configuration xml file is saved other than the servlet-name -->
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/dispatcher-servlet.xml</param-value>
+		</init-param>
+
+		<load-on-startup>1</load-on-startup>
+	</servlet>
+
+	<!-- This is to map the request from the client to the corresponding servlet, 
+		here, its Dispatcher Servlet -->
+	<servlet-mapping>
+		<servlet-name>Dispatcher Servlet</servlet-name>
+		<url-pattern>/</url-pattern>
+	</servlet-mapping>
+
+	<!-- This is to configure the controller classes and to map the views.
+	Uncomment this when you didn't declare <init-param> in <servet> tag above.
+	The servlet configuration file name should be follow this pattern "<servlet-name>-servlet.xml".
+	Eg. If the above servlet name is dispatcher, then the servlet config file should be "dispatcher-servlet.xml" 
+	<context-param> 
+		<param-name>contextConfigLocation</param-name> 
+		<param-value>/WEB-INF/dispatcher-servlet.xml</param-value> 
+	</context-param> 
+	-->
+</web-app>
